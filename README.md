@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Project Description](#project-description)
 2. [Quickstart](#quickstart)
-   - [Run with Docker](#run-with-docker)(#run-locally-without-docker)
+   - [Run with Docker](#run-with-docker)
 3. [Usage](#usage)
    - [Configuration](#configuration)
    - [Environment Variables](#environment-variables)
@@ -18,11 +18,9 @@ The repository includes:
 
 - A Django project containing the **`babyshop_app`** app  
 - A **Dockerfile** for containerized deployment  
-- A **`.env` file** for environment configuration  
+- A **`example.env` file** for environment configuration  
 - A **`.gitignore`** to exclude irrelevant files  
 - Documentation compliant with the Baby Tools checklist  
-
-The project can be run either locally (using Python virtual environment) or via Docker for consistent deployment.
 
 ---
 
@@ -72,12 +70,9 @@ DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,your.vm.ip
 
 To create an admin user:
 ```bash
-python babyshop_app/manage.py createsuperuser
-``` 
-or 
-```bash
 docker exec -it <container_name> bash
-```
+python manage.py createsuperuser
+``` 
 
 ---
 
