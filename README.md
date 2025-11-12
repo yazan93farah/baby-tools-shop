@@ -3,8 +3,7 @@
 ## Table of Contents
 1. [Project Description](#project-description)
 2. [Quickstart](#quickstart)
-   - [Run with Docker](#run-with-docker)
-   - [Run Locally (without Docker)](#run-locally-without-docker)
+   - [Run with Docker](#run-with-docker)(#run-locally-without-docker)
 3. [Usage](#usage)
    - [Configuration](#configuration)
    - [Environment Variables](#environment-variables)
@@ -17,7 +16,7 @@
 
 The repository includes:
 
-- A Django project containing the **`baby_shop`** app  
+- A Django project containing the **`babyshop_app`** app  
 - A **Dockerfile** for containerized deployment  
 - A **`.env` file** for environment configuration  
 - A **`.gitignore`** to exclude irrelevant files  
@@ -51,46 +50,11 @@ http://<your-vm-ip>:8025/
 
 ---
 
-### Run Locally (without Docker)
-
-#### Prerequisites
-- Python 3.10+  
-- `pip` package manager  
-- (Recommended) a virtual environment  
-
-#### Steps
-```bash
-# 1. Clone the repository
-cd baby-tools-shop
-
-# 2. Create and activate a virtual environment
-python -m venv venv
-source venv/bin/activate  # on Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Create a .env file in the project root (see below)
-
-# 5. Run migrations
-python src/manage.py migrate
-
-# 6. Start the development server
-python src/manage.py runserver 0.0.0.0:8025
-```
-
-Your app will be available at:
-```
-http://localhost:8025/
-```
-
----
-
 ## ⚙️ Usage
 
 ### Configuration
 The project requires a `.env` file for environment-specific settings.  
-This file must be **created manually** in the **project root directory** (the same folder as your `manage.py`, or one level above if your source code is inside a `src/` folder).
+This file must be **created manually** in the **project root directory** (the same folder as your `manage.py`, or one level above if your source code is inside a `babyshop_app/` folder).
 
 Environment variables are used to keep sensitive data (like secret keys, hostnames, and database URLs) **outside of version control**.  
 This approach improves security and makes it easier to configure different environments (development, staging, production).
@@ -108,7 +72,7 @@ DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,your.vm.ip
 
 To create an admin user:
 ```bash
-python src/manage.py createsuperuser
+python babyshop_app/manage.py createsuperuser
 ``` 
 or 
 ```bash
