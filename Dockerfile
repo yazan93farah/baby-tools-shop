@@ -1,8 +1,8 @@
 FROM  python:3.9-slim
 ENV WORKDIR=/app
-WORKDIR $WORKDIR
+WORKDIR ${WORKDIR}
 
-COPY ./babyshop_app $WORKDI 
+COPY ./babyshop_app ${WORKDIR} 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 EXPOSE 8025
