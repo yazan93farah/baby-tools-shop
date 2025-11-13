@@ -1,37 +1,73 @@
-# E-Commerce Project For Baby Tools
+# 🍼 Baby Tools Shop
 
-### TECHNOLOGIES
+## Table of Contents
+1. [Project Description](#project-description)
+2. [Quickstart](#quickstart)
+   - [Run with Docker](#run-with-docker)
+3. [Usage](#usage)
+   - [Configuration](#configuration)
+   - [Environment Variables](#environment-variables)
+   - [Accessing the App](#accessing-the-app)
+---
 
-- Python 3.9
-- Django 4.0.2
-- Venv
+## 🧩 Project Description
 
-### Hints
+**Baby Tools Shop** is a Django-based web application that provides an online platform for managing and viewing baby products.  uses docker container. 
 
-This section will cover some hot tips when trying to interacting with this repository:
+The repository includes:
 
-- Settings & Configuration for Django can be found in `babyshop_app/babyshop/settings.py`
-- Routing: Routing information, such as available routes can be found from any `urls.py` file in `babyshop_app` and corresponding subdirectories
+- A Django project containing the **`babyshop_app`** app  
+- A **Dockerfile** for containerized deployment  
+- A **`example.env` file** for environment configuration  
+- A **`.gitignore`** to exclude irrelevant files  
+- Documentation compliant with the Baby Tools checklist  
 
-### Photos
+---
 
-##### Home Page with login
+## 🚀 Quickstart
 
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080815407.jpg"></img>
-##### Home Page with filter
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080840305.jpg"></img>
-##### Product Detail Page
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080934541.jpg"></img>
+### Run with Docker
 
-##### Home Page with no login
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080953570.jpg"></img>
+#### Prerequisites
+- [Docker](https://www.docker.com/) installed on your system  
+- A `.env` file in the project root (see [Configuration](#configuration))
+
+#### Steps
+```bash
+# 1. Build the Docker image
+docker build -t baby-tools-shop .
+
+# 2. Run the container (load environment variables from .env)
+docker run -p 8025:8025 --env-file .env baby-tools-shop
+```
+
+Once started, the app will be available at:
+```
+http://<your-vm-ip>:8025/
+```
+
+---
+
+## ⚙️ Usage
+
+### Configuration
+The project requires a `.env` file for environment-specific settings.  
+This file must be **created manually** in the **project root directory** (the same folder as your `manage.py`, or one level above if your source code is inside a `babyshop_app/` folder).
+
+Environment variables are used to keep sensitive data (like secret keys, hostnames, and database URLs) **outside of version control**.  
+This approach improves security and makes it easier to configure different environments (development, staging, production).
+
+### Required Environment Variables
+Create a new file named `.env` in the project root and add the following variables:
+
+```bash
+# Include your local machine and your server IP if deployed
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,your.vm.ip
+```
+To create an admin user:
+```bash
+docker exec -it <container_name> bash
+python manage.py createsuperuser
+``` 
 
 
-##### Register Page
-
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081016022.jpg"></img>
-
-
-##### Login Page
-
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081044867.jpg"></img>
