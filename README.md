@@ -61,19 +61,13 @@ This approach improves security and makes it easier to configure different envir
 Create a new file named `.env` in the project root and add the following variables:
 
 ```bash
-
 # Include your local machine and your server IP if deployed
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,your.vm.ip
-
-
 ```
-
 To create an admin user:
 ```bash
 docker exec -it <container_name> bash
 python manage.py createsuperuser
 ``` 
-
----
 
 
